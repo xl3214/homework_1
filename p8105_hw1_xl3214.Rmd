@@ -1,0 +1,58 @@
+---
+title: "Homework 1"
+author: "Xuan Lu"
+date: "2023-09-18"
+output: 
+  html_document: 
+    toc: true #table of contents = true
+    toc_float: true #floating table of contents on the side
+---
+# Question 0.1
+
+```{r}
+usethis::use_git_config(
+    user.name = "Xuan Lu", 
+    user.email = "xuan.lu.080229@gmail.com"
+  )
+```
+
+
+# Question 1
+
+First let's load the dataset and take a look at what variables are contained in the dataset.
+```{r load_dataset}
+library(moderndive)
+data("early_january_weather")
+head(early_january_weather)
+```
+
+The dataset has `nrow(early_january_weather)` observations and `ncol(early_january_weather)` variables.
+The mean of variable "temperature" is `mean(early_january_weather$temp)`. 
+
+Using temperature as dependent variable (Y) and time_hour as independent variable (X), the dataset can be presented in the following scatterplot: 
+
+```{r create_scatterplot}
+library(tibble)
+library(ggplot2)
+scatter_time_temp <- ggplot(early_january_weather, 
+                            aes(x = time_hour, 
+                                y = temp, 
+                                colour = humid
+                              )) + geom_point()
+```
+
+
+Based on the graph, it seems like temperature fluctuates frequently as time_hour increases, but overall there seems to be an increasing trend. As time_hour and temperature increases, it seems like humidity also increases.
+Export your scatterplot to your project directory using ggsave.
+
+------------------------------------------------------------
+```{r save_scatterplot}
+ggsave( filename = "scatter_time_temp", plot = last_plot(), 
+        device = "png", 
+        path = NULL, 
+        scale = 1, 
+        width = NA, 
+        height = NA, 
+        units = c("in", "cm", "mm", "px")
+      )
+```
