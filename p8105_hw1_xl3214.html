@@ -1530,7 +1530,6 @@ as time_hour increases, but overall there seems to be an increasing
 trend. As time_hour and temperature increases, it seems like humidity
 also increases. Export your scatterplot to your project directory using
 ggsave.</p>
-<hr />
 <pre class="r"><code>ggsave( filename = &quot;scatter_time_temp&quot;, plot = last_plot(), 
         device = &quot;png&quot;, 
         path = NULL, 
@@ -1540,6 +1539,15 @@ ggsave.</p>
         units = c(&quot;in&quot;, &quot;cm&quot;, &quot;mm&quot;, &quot;px&quot;)
       )</code></pre>
 <pre><code>## Saving 7 x 5 in image</code></pre>
+</div>
+<div id="question-2" class="section level1">
+<h1>Question 2</h1>
+<p>Create a data frame comprised of:</p>
+<p>a random sample of size 10 from a standard Normal distribution a
+logical vector indicating whether elements of the sample are greater
+than 0 a character vector of length 10 a factor vector of length 10,
+with 3 different factor “levels” Try to take the mean of each variable
+in your dataframe. What works and what doesn’t?</p>
 </div>
 
 

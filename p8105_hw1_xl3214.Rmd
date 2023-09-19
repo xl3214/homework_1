@@ -45,7 +45,6 @@ scatter_time_temp <- ggplot(early_january_weather,
 Based on the graph, it seems like temperature fluctuates frequently as time_hour increases, but overall there seems to be an increasing trend. As time_hour and temperature increases, it seems like humidity also increases.
 Export your scatterplot to your project directory using ggsave.
 
-------------------------------------------------------------
 ```{r save_scatterplot}
 ggsave( filename = "scatter_time_temp", plot = last_plot(), 
         device = "png", 
@@ -56,3 +55,18 @@ ggsave( filename = "scatter_time_temp", plot = last_plot(),
         units = c("in", "cm", "mm", "px")
       )
 ```
+
+# Question 2
+
+Create a data frame comprised of:
+
+a random sample of size 10 from a standard Normal distribution
+a logical vector indicating whether elements of the sample are greater than 0
+a character vector of length 10
+a factor vector of length 10, with 3 different factor “levels”
+Try to take the mean of each variable in your dataframe. What works and what doesn’t?
+
+```{r}
+
+```
+
