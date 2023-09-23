@@ -1,11 +1,8 @@
 ---
 title: "Homework 1"
+output: github_document
 author: "Xuan Lu"
-date: "2023-09-18"
-output: 
-  html_document: 
-    toc: true #table of contents = true
-    toc_float: true #floating table of contents on the side
+date: "2023-09-23"
 ---
 # Question 0.1
 
@@ -32,22 +29,23 @@ library(tidyverse)
 ```{r load_dataset}
 
 data("early_january_weather")
-head(early_january_weather)
 
 ```
+The dataset contains variables `r colnames(early_january_weather)`.
 
-The dataset has `r nrow(early_january_weather)` observations and `r ncol(early_january_weather)` variables.
-The mean of variable "temperature" is `r mean(early_january_weather$temp)`. 
+The dataset has `r nrow(early_january_weather)` observations 
+and `r ncol(early_january_weather)` variables.
+
+The mean of variable `temperature` is `r mean(pull(early_january_weather, temp))`. 
 
 Using temperature as dependent variable (Y) and time_hour as independent variable (X), the dataset can be presented in the following scatterplot: 
 
 ```{r create_scatterplot}
 
-library(tibble)
-library(ggplot2)
 ggplot(early_january_weather, 
        aes(x = time_hour, 
-           y = temp, colour = humid
+           y = temp, 
+           colour = humid
           )
        ) + geom_point()
 
@@ -59,7 +57,8 @@ Next, I am saving the plot to my project directory using ggsave.
 
 ```{r save_scatterplot}
 
-ggsave( filename = "scatter_time_temp.png", plot = last_plot(), 
+ggsave( filename = "scatter_time_temp.png", 
+        plot = last_plot(), 
         device = "png", 
         path = NULL, 
         scale = 1, 
@@ -99,21 +98,21 @@ head(df_question2)
 
 Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). 
 
-```{r, message = FALSE, results = FALSE, warning = FALSE}
+```{r, message = FALSE, results = 'hide'}
 
 as.numeric(
-  pull(
-    df_question2, log_vec)
+  pull(df_question2, log_vec)
   )
 as.numeric(
-  pull(
-    df_question2, cha_vec)
+  pull(df_question2, cha_vec)
   )
 as.numeric(
-  pull(
-    df_question2, fac_vec)
+  pull(df_question2, fac_vec)
   )
 
 ```
 
-Warning messages for cha_vec and fac_vec are generated, stating that arguments are not numeric or logical, and returning `NA`. This is because factors and characters are not numbers, and cannot be converted to numeric variables. This helps explain why the mean for `cha_vec` and `fac_vec` are NAs. 
+In the output, warning message for cha_vec is generated, stating `NAs introduced by coercion`. 
+Additionally, warning messages are generated upon knitting: 
+`Warning messages:1: In mean.default(pull(df_question2, cha_vec)): argument is not numeric or logical: returning NA 2: In mean.default(pull(df_question2, fac_vec)): argument is not numeric or logical: returning NA`.
+This is because characters are not numbers, and cannot be converted to numeric variables. This helps explain why the mean for `cha_vec` is NA. However, as.numeric was able to turn `log_vec` into numeric variables by its levels. 
