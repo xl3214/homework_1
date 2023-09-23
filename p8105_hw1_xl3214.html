@@ -1530,7 +1530,7 @@ as time_hour increases, but overall there seems to be an increasing
 trend. As time_hour and temperature increases, it seems like humidity
 also increases.</p>
 <p>Next, I am saving the plot to my project directory using ggsave.</p>
-<pre class="r"><code>ggsave( filename = &quot;scatter_time_temp&quot;, plot = last_plot(), 
+<pre class="r"><code>ggsave( filename = &quot;scatter_time_temp.png&quot;, plot = last_plot(), 
         device = &quot;png&quot;, 
         path = NULL, 
         scale = 1, 
@@ -1559,16 +1559,16 @@ greater than 0</li>
   )
 head(df_question2)</code></pre>
 <pre><code>## # A tibble: 6 × 4
-##     samp log_vec cha_vec fac_vec
-##    &lt;dbl&gt; &lt;lgl&gt;   &lt;chr&gt;   &lt;fct&gt;  
-## 1 -0.729 FALSE   I       yes    
-## 2  0.105 TRUE    don&#39;t   no     
-## 3  2.12  TRUE    know    unknown
-## 4 -1.17  FALSE   how     yes    
-## 5  1.33  TRUE    to      yes    
-## 6  0.461 TRUE    name    no</code></pre>
+##      samp log_vec cha_vec fac_vec
+##     &lt;dbl&gt; &lt;lgl&gt;   &lt;chr&gt;   &lt;fct&gt;  
+## 1 -1.43   FALSE   I       yes    
+## 2  0.535  TRUE    don&#39;t   no     
+## 3  0.341  TRUE    know    unknown
+## 4 -2.40   FALSE   how     yes    
+## 5  0.0333 TRUE    to      yes    
+## 6 -2.57   FALSE   name    no</code></pre>
 <ul>
-<li>The mean of variable samp is 0.1172514.</li>
+<li>The mean of variable samp is -0.3645075.</li>
 <li>The mean of variable log_vec is 0.6.</li>
 <li>The mean of variable cha_vec is NA.</li>
 <li>The mean of variable fac_vec is NA.</li>

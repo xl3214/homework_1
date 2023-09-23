@@ -59,7 +59,7 @@ Next, I am saving the plot to my project directory using ggsave.
 
 ```{r save_scatterplot}
 
-ggsave( filename = "scatter_time_temp", plot = last_plot(), 
+ggsave( filename = "scatter_time_temp.png", plot = last_plot(), 
         device = "png", 
         path = NULL, 
         scale = 1, 
